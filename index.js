@@ -16,6 +16,20 @@ app.get('/',(req,res)=>{
 app.get('/course-catagories',(req,res)=>{
     res.send(catagories)
 })
+app.get('/catagories/:id', (req, res) => {
+    const id = req.params.id;
+    if (id === '07') {
+        res.send(course);
+    }
+    else {
+        const category_course= course.filter(n => n.course_id === id);
+        res.send(category_course);
+    }
+})
+
+app.get('/course', (req, res) =>{
+    res.send(course);
+});
 
 app.get('/course/:id', (req, res) => {
     const id = req.params.id;
